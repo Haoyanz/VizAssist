@@ -15,6 +15,8 @@ public class ImageActions {
      * @param requestCode request code to get result when the camera activity is dismissed.
      */
     public static void startCameraActivity(Activity activity, int requestCode) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        activity.startActivityForResult(intent, requestCode);
     }
 
     /**
@@ -23,5 +25,7 @@ public class ImageActions {
      * @param requestCode request code to get result when the gallery activity is dismissed.
      */
     public static void startGalleryActivity(Activity activity, int requestCode) {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        activity.startActivityForResult(intent, requestCode);
     }
 }
